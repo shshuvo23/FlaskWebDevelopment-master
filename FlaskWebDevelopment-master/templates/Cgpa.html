@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}My Report{% endblock %}
+{% block page_content %}
+<div class="content">
+    <h1 class="text-center display-4">My Report</h1>
+    <br />
+    <table class="text-center table table-dark">
+        <tr>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Credit Attemped</th>
+            <th>Credit Earned</th>
+            <th>Grade</th>
+            <th>Points Secured</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.Course_Code }}</td>
+            <td>{{ result.Course_Title }}</td>
+            <td>{{ result.Credit_Attemped }}</td>
+            <td>{{ result.Letter_Grade}}</td>
+            <td>{{ result.Grade_Points}}</td>
+            <td>{{ result.Points_Secured}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <br />
+    <hr />
+    <form action=" {{ request.path }}" method="post">
+        <h2>Add a new subject:</h2>
+        <div><label for="Course_Code">Course Code :</label>
+            <input style="background-color: rgb(222, 248, 242);" type="text" name="Course_Code" id="Course_Code"><br />
+        </div>
+        <div>
+            <label for="Course_Title ">Course Title :</label>
+            <input style="background-color: rgb(222, 248, 242);" type="text" name="Course_Title "
+                id="Course_Title "><br />
+        </div>
+        <div>
+            <label for="Credit_Attemped">Course Cradit :</label>
+            <input style="background-color: rgb(222, 248, 242);" type="number" name="Credit_Attemped"
+                id="Credit_Attemped"><br />
+
+        </div>
+
+        <div>
+            <label for="Letter_Grade">Letter_Grade :</label>
+            <input style="background-color: rgb(222, 248, 242);" type="text" name="Letter_Grade"
+                id="Letter_Grade"><br />
+        </div>
+
+        <div>
+            <label for="Letter_Grade">Grade_Points :</label>
+            <input style="background-color: rgb(222, 248, 242);" type="text" name="Grade_Points"
+                id="Grade_Points"><br />
+
+        </div>
+
+        <input style="background-color:rgb(222, 248, 242);"" class=" btn btn-success" type="submit" value="Add">
+    </form>
+</div>
+{% endblock %}
